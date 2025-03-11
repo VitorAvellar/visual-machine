@@ -1,0 +1,16 @@
+img = cv2.imread("Estrela_do_Mar_2.jpg")
+
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+plt.imshow(img_rgb)
+plt.show()
+
+img_lower_hsv_estrela1 = np.array([0, 70, 70])
+img_upper_hsv_estrela1 = np.array([35, 255, 255])
+
+mask = cv2.inRange(img_hsv, img_lower_hsv_estrela1, img_upper_hsv_estrela1)
+
+
+plt.imshow(mask, cmap = "gray")
+plt.show()
